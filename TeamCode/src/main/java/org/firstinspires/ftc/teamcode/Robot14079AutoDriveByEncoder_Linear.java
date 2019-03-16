@@ -98,10 +98,10 @@ public class Robot14079AutoDriveByEncoder_Linear extends LinearOpMode {
         robot.motor4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         //Left Rear Port 0
-        robot.motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         //Right Rear Port 1
-        robot.motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
@@ -143,9 +143,9 @@ public class Robot14079AutoDriveByEncoder_Linear extends LinearOpMode {
             newLeftTarget = robot.motor3.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = robot.motor4.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
             robot.motor3.setTargetPosition(newLeftTarget);
-            robot.motor2.setTargetPosition(newLeftTarget);
+            robot.motor1.setTargetPosition(newLeftTarget);
+            robot.motor2.setTargetPosition(newRightTarget);
             robot.motor4.setTargetPosition(newRightTarget);
-            robot.motor1.setTargetPosition(newRightTarget);
 
             // Turn On RUN_TO_POSITION
             robot.motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);

@@ -56,10 +56,19 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class Hardware14079
 {
     /* Public OpMode members. */
-    public DcMotor  motor1   = null;
-    public DcMotor  motor2  = null;
+
+    // Left Front Port 3
     public DcMotor  motor3     = null;
+
+    // Right Front Port 2
     public DcMotor  motor4     = null;
+
+    //Left Rear Port 0
+    public DcMotor  motor1   = null;
+
+    //Right Rear Port 1
+    public DcMotor  motor2  = null;
+
     public DcMotor  motorLifter     = null;
     public DcMotor  motorScissor     = null;
     public DcMotor  motorIngester     = null;
@@ -84,15 +93,24 @@ public class Hardware14079
         hwMap = ahwMap;
 
         // Define and Initialize Motors
-        motor1 = hwMap.get(DcMotor.class, "motor1");
-        motor2 = hwMap.get(DcMotor.class, "motor2");
-        motor3  = hwMap.get(DcMotor.class, "motor3");
-        motor4  = hwMap.get(DcMotor.class, "motor4");
-        motorLifter  = hwMap.get(DcMotor.class, "motorLifter");
-        motorScissor  = hwMap.get(DcMotor.class, "motorScissor");
-        motorIngester  = hwMap.get(DcMotor.class, "motorIngester");
-        leftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
-        rightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        motor1 = hwMap.get(DcMotor.class, "motor_1");
+        motor2 = hwMap.get(DcMotor.class, "motor_2");
+        motor3  = hwMap.get(DcMotor.class, "motor_3");
+        motor4  = hwMap.get(DcMotor.class, "motor_4");
+        motorLifter  = hwMap.get(DcMotor.class, "lifter");
+        motorScissor  = hwMap.get(DcMotor.class, "Scissor");
+        motorIngester  = hwMap.get(DcMotor.class, "ingester");
+        motor1.setDirection(DcMotor.Direction.FORWARD);
+        motor2.setDirection(DcMotor.Direction.FORWARD);
+        motor3.setDirection(DcMotor.Direction.FORWARD);
+        motor4.setDirection(DcMotor.Direction.FORWARD);
+
+        motor3.setDirection(DcMotor.Direction.REVERSE); // Set to REVERSE if using AndyMark motors
+        motor1.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+
+        motor2.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
+        motor4.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+
 
         // Set all motors to zero power
         motor1.setPower(0);
